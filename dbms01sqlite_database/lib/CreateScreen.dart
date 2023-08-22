@@ -10,7 +10,6 @@ class CreateScreen extends StatefulWidget {
 
 class _CreateScreenState extends State<CreateScreen> {
   var nameController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +23,9 @@ class _CreateScreenState extends State<CreateScreen> {
           ),
           ElevatedButton(
               onPressed: () async {
-                String name = nameController.text.toString();
-                await Db_helper.instance
-                    .insertRecord({Db_helper.dt_name: name});
+                //name => TextFeild Value from controller e.g(Warisha Aslam)
+                String name = nameController.text.toString(); 
+                await Db_helper.instance.insertRecord({Db_helper.dt_name: name});
                 setState(() {});
                 Navigator.of(context).pop();
               },
